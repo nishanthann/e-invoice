@@ -1,0 +1,7 @@
+{
+  "functions": {
+    ".vercel/output/functions/**/*.func": {
+      "includeFiles": "lib/generated/prisma/**/*"
+    }
+  }
+}
