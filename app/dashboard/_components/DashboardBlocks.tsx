@@ -83,12 +83,13 @@ export default async function DashboardBlocks() {
       {/* Revenue */}
       <Card className="p-4">
         <CardHeader className="flex flex-row items-center justify-between pb-2">
-          <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
+          <CardTitle className="text-sm font-medium">Total Expenses</CardTitle>
           <Wallet className="h-5 w-5 text-muted-foreground" />
         </CardHeader>
         <CardContent>
           <p className="text-2xl font-bold">
-            ${data.reduce((acc, invoice) => acc + invoice.total, 0)}
+            <span className="mr-1">LKR</span>
+            {data.reduce((acc, invoice) => acc + invoice.total, 0)}.00
           </p>
           <p className="text-xs text-muted-foreground">+4.5% from last month</p>
         </CardContent>
