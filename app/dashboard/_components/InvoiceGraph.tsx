@@ -53,18 +53,36 @@ async function getInvoiceData(userId: string) {
 export default async function InvoiceGraph() {
   const session = await requireUser();
   const data = await getInvoiceData(session.user?.id as string);
-  console.log(data);
+
+  if (!data || data.length === 0) {
+    return (
+      <Card>
+        <CardHeader>
+          <CardTitle>Paid Invoices</CardTitle>
+          <CardDescription>
+            Invoices which have been paid in the last 30 days
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="text-center text-sm text-muted-foreground py-10">
+            No paid invoices found in the last 30 days.
+          </div>
+        </CardContent>
+      </Card>
+    );
+  }
+
   return (
     <Card>
       <CardHeader>
         <CardTitle>Paid Invoices</CardTitle>
         <CardDescription>
-          Invoices which have been paid in last 30 days
+          Invoices which have been paid in the last 30 days
         </CardDescription>
-        <CardContent>
-          <ChartLineDefault chartData={data} />
-        </CardContent>
       </CardHeader>
+      <CardContent>
+        <ChartLineDefault chartData={data} />
+      </CardContent>
     </Card>
   );
 }

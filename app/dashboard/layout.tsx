@@ -22,6 +22,7 @@ import { ModeToggle } from "@/components/MoodToggle";
 import { prisma, signOut } from "../utils/auth";
 import { requireUser } from "../utils/hook";
 import { redirect } from "next/navigation";
+import Link from "next/link";
 
 async function getUser(userId: string) {
   const data = await prisma.user.findUnique({
@@ -56,12 +57,12 @@ export default async function DashboardLayout({
         <aside className="hidden md:flex border-r bg-background p-4">
           <div>
             {/* Logo & Name */}
-            <div className="flex items-center gap-2 mb-4">
+            <Link href="/" className="flex items-center gap-2 mb-4">
               <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center text-2xl text-primary-foreground font-semibold">
                 E
               </div>
-              <span className=" text-2xl font-semibold">Invoicer</span>
-            </div>
+              <span className="text-2xl font-semibold">Invoicer</span>
+            </Link>
 
             <Separator className="mb-8" />
 

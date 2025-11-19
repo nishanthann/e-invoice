@@ -1,6 +1,7 @@
 import { requireUser } from "../utils/hook";
 import DashboardBlocks from "./_components/DashboardBlocks";
 import InvoiceGraph from "./_components/InvoiceGraph";
+import { RecentInvoices } from "./_components/RecentInvoices";
 
 export default async function Dahboard() {
   await requireUser();
@@ -11,7 +12,9 @@ export default async function Dahboard() {
         <div className="lg:col-span-2">
           <InvoiceGraph />
         </div>
-        <div></div>
+        <div>
+          <RecentInvoices />
+        </div>
       </div>
     </div>
   );

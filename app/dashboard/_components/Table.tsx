@@ -60,7 +60,7 @@ export default async function TableDemo() {
             <TableCell>
               {invoice.total.toLocaleString("en-US", {
                 style: "currency",
-                currency: "USD",
+                currency: "LKR",
               })}
             </TableCell>
             <TableCell>
