@@ -51,7 +51,7 @@ export default function OnboardingPage() {
 
       await completeOnboarding(null, formData);
     } catch (error) {
-      setServerError("Failed to save profile. Please try again.");
+      // setServerError("Failed to save profile. Please try again.");
       console.error("Onboarding error:", error);
     } finally {
       setIsSubmitting(false);
